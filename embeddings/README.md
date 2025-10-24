@@ -20,56 +20,49 @@ Educational demonstrations of text embeddings and semantic search using Python.
 ## Scripts Overview
 
 ### 01_basic_embeddings.py
-**Key Concept**: Text → Numerical Vectors
+**Concept**: Text → Numerical Vectors
 
-A minimal script showing the core concept of embeddings:
+Minimal demonstration of embedding basics:
 - Converts 3 sentences to vectors
-- Displays the first 10 dimensions of each vector
-- Perfect for understanding the basics
+- Displays first 10 dimensions of each
+- Shows how text becomes numbers
 
-**Usage:**
 ```bash
 python 01_basic_embeddings.py
 ```
 
 ### 02_comparison.py
-**Key Concept**: Embedding Similarity
+**Concept**: Embedding Similarity
 
-Extends the basic concepts with similarity analysis:
-- Creates embeddings for sentences
+Similarity analysis between sentences:
+- Creates embeddings for multiple sentences
 - Calculates cosine similarity between all pairs
 - Shows which sentences are semantically similar
-- Good for understanding how similarity works
 
-**Usage:**
 ```bash
 python 02_comparison.py
 ```
 
 ### 03_semantic_search.py
-**Key Concept**: Semantic Search Engine
+**Concept**: Semantic Search Engine
 
-Implements a practical search engine:
-- 10 hardcoded documents (no database needed)
-- 3 example search queries demonstrating semantic understanding
+Practical search implementation:
+- 10 hardcoded documents (no database)
+- 3 search queries with results
 - Shows top 3 results with similarity scores
-- Highlights how semantic search finds related concepts, not just keywords
 
-**Usage:**
 ```bash
 python 03_semantic_search.py
 ```
 
 ### 04_complete_demo.py
-**Key Concept**: Full Educational Workflow
+**Concept**: Full Demonstration
 
-Comprehensive demonstration combining all concepts:
-- Part 1: Understanding embeddings
-- Part 2: Measuring similarity
-- Part 3: Building a search engine
-- Includes formatted output and pacing for presentations
+Comprehensive workflow combining all concepts:
+- Complete embeddings to search pipeline
+- Formatted output with presentation flow
+- 15 diverse documents with detailed examples
 
-**Usage:**
 ```bash
 python 04_complete_demo.py
 ```
@@ -94,12 +87,12 @@ Scripts use `sentence-transformers/all-MiniLM-L6-v2`:
 - **Dimensions**: 384-dimensional vectors
 - **Quality**: Good balance of speed and semantic understanding
 
-## Key Design Principles
+## Design Principles
 
-- **In-Memory Documents**: All text hardcoded for simplicity (no files/databases)
+- **In-Memory Documents**: All text hardcoded (no files/databases)
 - **Minimal Dependencies**: Only sentence-transformers and scikit-learn
-- **Progressive Complexity**: Scripts build from basics to practical applications
-- **Educational Focus**: Optimized for clarity and understanding
+- **Progressive Complexity**: Build from basics to practical applications
+- **Clarity First**: Clean, readable code focused on concepts
 
 ## Customization
 
