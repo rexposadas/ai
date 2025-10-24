@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-Part 2: Semantic Search Engine
-Demonstrates how to search documents by meaning, not just keywords
-"""
-
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
@@ -90,14 +85,3 @@ for query in queries:
         else:
             print("   ↳ Less relevant")
         print()
-
-print("=" * 60)
-print("KEY INSIGHT:")
-print("Notice how the search understands MEANING, not just exact words!")
-print()
-print("For 'machine learning' → finds 'algorithms', 'AI', 'neural networks'")
-print("For 'programming languages' → finds 'Python', 'JavaScript', 'Java'")
-print("For 'animals' → finds 'dogs', 'cats', 'pets'")
-print()
-print("This is SEMANTIC SEARCH - understanding what you mean!")
-print("=" * 60)

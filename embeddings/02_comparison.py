@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-Part 1: Basic Embedding Demonstration
-Shows how text is converted to numerical vectors (embeddings)
-"""
-
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
