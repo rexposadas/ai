@@ -1,99 +1,141 @@
-# Embedding Demo Scripts
+# Embeddings & Semantic Search Demo
 
-Scripts for creating a YouTube video about embeddings and semantic search.
+Educational demonstrations of text embeddings and semantic search using Python.
 
-## Setup
+## Quick Start
 
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+### Setup
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # macOS/Linux
+   # or: venv\Scripts\activate  # Windows
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Scripts Overview
 
 ### 01_basic_embeddings.py
-**Duration: ~3-4 minutes**
-- Shows how text transforms into numerical vectors
-- Demonstrates similarity calculation
-- Visualizes the concept of "similar meanings = similar numbers"
-- Good for introducing the core concept
+**Key Concept**: Text → Numerical Vectors
+
+A minimal script showing the core concept of embeddings:
+- Converts 3 sentences to vectors
+- Displays the first 10 dimensions of each vector
+- Perfect for understanding the basics
 
 **Usage:**
 ```bash
 python 01_basic_embeddings.py
 ```
 
-### 02_semantic_search.py
-**Duration: ~8-10 minutes**
-- Builds a complete semantic search engine
-- Uses a collection of 10 hardcoded documents
-- Demonstrates 3 different search queries
-- Shows how semantic search understands meaning vs keywords
+### 02_comparison.py
+**Key Concept**: Embedding Similarity
+
+Extends the basic concepts with similarity analysis:
+- Creates embeddings for sentences
+- Calculates cosine similarity between all pairs
+- Shows which sentences are semantically similar
+- Good for understanding how similarity works
 
 **Usage:**
 ```bash
-python 02_semantic_search.py
+python 02_comparison.py
 ```
 
-### 03_complete_demo.py
-**Duration: ~15 minutes**
-- Comprehensive demonstration combining both concepts
-- Part 1: Understanding embeddings (3-4 min)
-- Part 2: Building semantic search (8-10 min)
-- Part 3: Why it matters (2 min)
-- Includes pacing with time.sleep() for better presentation flow
+### 03_semantic_search.py
+**Key Concept**: Semantic Search Engine
+
+Implements a practical search engine:
+- 10 hardcoded documents (no database needed)
+- 3 example search queries demonstrating semantic understanding
+- Shows top 3 results with similarity scores
+- Highlights how semantic search finds related concepts, not just keywords
 
 **Usage:**
 ```bash
-python 03_complete_demo.py
+python 03_semantic_search.py
 ```
 
-## Video Recording Tips
+### 04_complete_demo.py
+**Key Concept**: Full Educational Workflow
 
-1. **Terminal Setup**:
-   - Use a large font (18-20pt) for visibility
-   - Dark theme with good contrast
-   - Clear any clutter from terminal before starting
+Comprehensive demonstration combining all concepts:
+- Part 1: Understanding embeddings
+- Part 2: Measuring similarity
+- Part 3: Building a search engine
+- Includes formatted output and pacing for presentations
 
-2. **Execution Flow**:
-   - Run `03_complete_demo.py` for the full video
-   - Or run individual scripts for specific segments
-   - The scripts include pauses for better pacing
+**Usage:**
+```bash
+python 04_complete_demo.py
+```
 
-3. **Key Points to Emphasize**:
-   - Text → Numbers transformation
-   - Similarity scores (1.0 = identical, 0.0 = unrelated)
-   - Semantic understanding vs keyword matching
-   - Real-world applications
+## How It Works
 
-4. **What Makes This Simple**:
-   - All documents hardcoded in memory
-   - No database setup required
-   - No file I/O operations
-   - Just run and demonstrate!
+### The Embedding Process
+1. **Text → Numbers**: Sentences are converted to vectors (arrays of numbers)
+2. **Meaning → Dimensions**: Similar meanings produce similar vectors
+3. **Similarity Scoring**: Compare vectors using cosine similarity (0.0 to 1.0)
+
+### Why This Matters
+- **Semantic Understanding**: Finds conceptually related content, not just keywords
+- **Fast Search**: Vectorized comparison is computationally efficient
+- **Scalable**: Can work with thousands of documents in production
 
 ## Model Information
 
-The scripts use `all-MiniLM-L6-v2`:
-- Fast and lightweight
-- 384-dimensional embeddings
-- Good for demonstrations
-- First run will download the model (~90MB)
+Scripts use `sentence-transformers/all-MiniLM-L6-v2`:
+- **Speed**: Fast inference (~100ms per document)
+- **Size**: Lightweight (~90MB, downloads on first run)
+- **Dimensions**: 384-dimensional vectors
+- **Quality**: Good balance of speed and semantic understanding
 
-## Script Features
+## Key Design Principles
 
-All scripts include:
-- ✓ Clear section headers
-- ✓ Step-by-step explanations
-- ✓ Hardcoded documents (no external files)
-- ✓ Visual indicators (scores, bars, emojis)
-- ✓ Progressive difficulty (basic → advanced)
-- ✓ Comments explaining key concepts
+- **In-Memory Documents**: All text hardcoded for simplicity (no files/databases)
+- **Minimal Dependencies**: Only sentence-transformers and scikit-learn
+- **Progressive Complexity**: Scripts build from basics to practical applications
+- **Educational Focus**: Optimized for clarity and understanding
 
 ## Customization
 
-To modify the demonstrations:
-- **Change documents**: Edit the `documents` list in each script
-- **Adjust queries**: Modify the `queries` or `test_queries` lists
-- **Change model**: Replace `'all-MiniLM-L6-v2'` with another sentence-transformers model
-- **Add more results**: Change `top_3_indices` to show more results
+To adapt these scripts:
+
+**Change Documents**:
+```python
+documents = [
+    "Your text here",
+    "More text",
+]
+```
+
+**Change Model** (alternative models from Hugging Face):
+```python
+model = SentenceTransformer("model-name")
+```
+
+**Adjust Results**:
+- Modify similarity thresholds (0.7 for "relevant", 0.5 for "somewhat")
+- Change `top_3_indices` to show more/fewer results
+- Add more documents to search across
+
+## Troubleshooting
+
+**Model Download Issues**:
+- First run downloads ~90MB model
+- Requires internet connection
+- Model is cached locally after download
+
+**Slow Performance**:
+- First query is slower (model initialization)
+- Subsequent queries run faster
+- For production: batch encode documents
+
+**Different Results**:
+- Similarity scores vary based on random seed
+- Transformer models have some inherent variation
+- Results should be directionally consistent
